@@ -68,6 +68,10 @@ function App() {
     if(res.data=="location"){
       alert("you are caught loc")
     }
+    else if(res.data=="forbidden"){
+      alert("your are caught")
+
+    }
     else if(res.data=="data inserted"){
       alert("good submitted your attendance")
 

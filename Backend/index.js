@@ -34,7 +34,7 @@ app.use((req,res,next)=>{
         console.log(ip1)
         next()
     }else{
-        res.status(403).send('forbidden'+ ip1)
+        res.status(403).send('forbidden')
     }
     
     
