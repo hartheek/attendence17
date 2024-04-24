@@ -56,9 +56,9 @@ function App() {
     const formattedDate = date.format(now, 'YYYY/MM/DD');
     const formattedTime = date.format(now, 'HH:mm:ss');
     
-    const apiUrl = 'https://attendance-olive.vercel.app/';
+    const apiUrl = 'https://attendence17.onrender.com';
 
-    axios.post(apiurl, {...data, sessionid,formattedDate,formattedTime,latitude,longitude}).then((res) => {
+    axios.post('${apiurl}', {...data, sessionid,formattedDate,formattedTime,latitude,longitude}).then((res) => {
   
     if(res.data=="location"){
       alert("you are caught loc")
