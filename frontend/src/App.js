@@ -57,9 +57,14 @@ function App() {
     const formattedTime = date.format(now, 'HH:mm:ss');
     
     const apiUrl = 'https://attendence17.onrender.com';
+    const apiKey = 'rnd_3FlomSrwAd79aIrLT1GtypCV5yqf';
 
-    axios.post(`${apiUrl}`, {...data, sessionid,formattedDate,formattedTime,latitude,longitude}).then((res) => {
-  
+    axios.post(`${apiUrl}`, {...data, sessionid,formattedDate,formattedTime,latitude,longitude},  {
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      }}).then((res) => {
+
     if(res.data=="location"){
       alert("you are caught loc")
     }
