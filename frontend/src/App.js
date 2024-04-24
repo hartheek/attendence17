@@ -58,7 +58,7 @@ function App() {
     
     const apiUrl = 'https://attendence17.onrender.com';
 
-    axios.post('${apiurl}', {...data, sessionid,formattedDate,formattedTime,latitude,longitude}).then((res) => {
+    axios.post(`${apiUrl}`, {...data, sessionid,formattedDate,formattedTime,latitude,longitude}).then((res) => {
   
     if(res.data=="location"){
       alert("you are caught loc")
