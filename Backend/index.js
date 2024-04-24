@@ -12,6 +12,8 @@ const app= express();
 const axios= require('axios')
 
 app.use(cors());
+app.use(cors({ origin: 'attendence17.vercel.app' }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set('trust proxy', true);
