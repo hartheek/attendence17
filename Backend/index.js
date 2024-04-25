@@ -29,7 +29,7 @@ app.use((req,res,next)=>{
     var ip1= req.ip;
     var ip='165.134.212';
     var ip2='165.134.212.81'
-    if(checkip(ip1,ip2)==true){
+    if(checkip(ip,ip1)==true){
         console.log('yes')
         console.log(ip1)
         next()

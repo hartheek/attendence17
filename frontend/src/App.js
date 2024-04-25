@@ -69,7 +69,7 @@ function App() {
       alert("you are caught loc")
     }
     else if(res.data=="forbidden"){
-      alert("your are caught")
+      alert("you are caught")
 
     }
     else if(res.data=="data inserted"){
