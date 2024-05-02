@@ -11,7 +11,21 @@ import { ClientJS } from 'clientjs';
 
 
 import date from 'date-and-time';
+
+// Used to detect whether the users browser is an mobile browser
+
+  ///<summary>Detecting whether the browser is a mobile browser or desktop browser</summary>
+  ///<returns>A boolean value indicating whether the browser is a mobile browser or not</returns>
+
+
+  // alternative
+
+
 function App() {
+  
+
+  // nothing found.. assume desktop
+
   const [data, setData] = useState({
     name: "",
     bannerid: "" 
@@ -21,15 +35,17 @@ function App() {
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
+  var mobile = ['iphone','ipad','android','blackberry','nokia','opera mini','windows mobile','windows phone','iemobile']; 
+  for (var i in mobile) if (navigator.userAgent.toLowerCase().indexOf(mobile[i].toLowerCase()) > 0) return (alert("usage of mobile is prohibited"));
+  else{
+    continue;
 
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // console.log(await internalIpV6());
-    if (!navigator.userAgent.includes("Chrome")) {
-      alert("Please open this website in Google Chrome for the best experience.");
-      window.location.href = "about:blank"; // Redirect to a blank page
-  }
+    
 
     let latitude = null;
     let longitude = null;
@@ -40,7 +56,6 @@ function App() {
         });
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
-        console.log(latitude, longitude)
     } catch (error) {
         if (error.code === error.PERMISSION_DENIED) {
             alert("Please allow location access to use this feature.");
@@ -66,10 +81,10 @@ function App() {
       }}).then((res) => {
 
     if(res.data=="location"){
-      alert("you are caught loc")
+      alert("you are caught because of wrong location")
     }
     else if(res.data=="forbidden"){
-      alert("you are caught")
+      alert("you are caught because you are not connected ")
 
     }
     else if(res.data=="data inserted"){
@@ -103,6 +118,7 @@ function App() {
               <button className='btn btn-primary' type='submit'>Submit</button>
             </div>
           </form>
+          
         </Card.Body>
       </Card>
     </Col>
